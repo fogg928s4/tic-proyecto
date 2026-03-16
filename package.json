@@ -1,7 +1,7 @@
 {
   "name": "tic-proyecto",
   "version": "1.0.0",
-  "description": "A nice an beautiful IT ticket manager",
+  "description": "A nice and beautiful IT ticket manager",
   "homepage": "https://github.com/fogg928s4/tic-proyecto#readme",
   "bugs": {
     "url": "https://github.com/fogg928s4/tic-proyecto/issues"
@@ -16,5 +16,9 @@
   "main": "api/index.ts",
   "scripts": {
     "test": "start"
+  },
+  "dependencies": {
+    "express": "^5.2.1",
+    "node-fetch": "^3.3.2"
   }
 }
