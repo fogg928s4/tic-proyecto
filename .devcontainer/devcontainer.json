@@ -1,0 +1,26 @@
+{
+  "postCreateCommand": "npm install",
+  "context": "..",
+  "remoteUser": "vscode",
+  "forwardPorts": [
+    3000
+  ],
+  "postStartCommand": "npm test",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-vscode.vscode-node-azure-pack",
+        "dbaeumer.vscode-eslint",
+        "esbenp.prettier-vscode"
+      ],
+      "settings": {
+        "terminal.integrated.shell.linux": "/bin/bash",
+        "terminal.integrated.env.linux": {
+          "CI": "true"
+        }
+      }
+    }
+  },
+  "name": "tic-proyecto Dev Container",
+  "dockerFile": "Dockerfile"
+}
