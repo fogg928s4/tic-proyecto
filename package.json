@@ -15,7 +15,8 @@
   "type": "commonjs",
   "main": "api/index.ts",
   "scripts": {
-    "test": "start"
+    "test": "start",
+    "start": "node api/index.ts"
   },
   "dependencies": {
     "express": "^5.2.1",

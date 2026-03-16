@@ -1,9 +1,21 @@
+version: "3.9"
+
 services:
   app:
-    Dockerfile: .devcontainer/Dockerfile
-    build: .
+    build:
+      context: .
+      dockerfile: .devcontainer/Dockerfile
+    image: tic-proyecto-dev:latest
+    working_dir: /workspace
+    environment:
+      NODE_ENV: development
+      PORT: 3000
     ports:
       - "3000:3000"
     volumes:
-      - .:/app
+      - .:/workspace:delegated
+      - /workspace/node_modules
     command: npm start
+    restart: unless-stopped
+    stdin_open: true
+    tty: true

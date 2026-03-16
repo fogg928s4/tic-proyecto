@@ -1,5 +1,5 @@
 {
-  "postCreateCommand": "npm install",
+  "postCreateCommand": "npm ci",
   "context": "..",
   "remoteUser": "vscode",
   "forwardPorts": [
@@ -8,11 +8,6 @@
   "postStartCommand": "npm test",
   "customizations": {
     "vscode": {
-      "extensions": [
-        "ms-vscode.vscode-node-azure-pack",
-        "dbaeumer.vscode-eslint",
-        "esbenp.prettier-vscode"
-      ],
       "settings": {
         "terminal.integrated.shell.linux": "/bin/bash",
         "terminal.integrated.env.linux": {
