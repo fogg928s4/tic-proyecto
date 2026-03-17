@@ -5,7 +5,6 @@ services:
     build:
       context: .
       dockerfile: .devcontainer/Dockerfile
-    image: tic-proyecto-dev:latest
     working_dir: /workspace
     environment:
       NODE_ENV: development
@@ -17,5 +16,3 @@ services:
       - /workspace/node_modules
     command: npm start
     restart: unless-stopped
-    stdin_open: true
-    tty: true
