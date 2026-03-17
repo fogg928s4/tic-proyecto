@@ -5,7 +5,8 @@ const PORT = process.env.PORT ? Number(process.env.PORT) : 3000;
 
 app.use(express.json());
 
-const webhook = process.env.API_URL || "http://localhost:8080/api/solicitudes";
+const WEBHOOK_URL = process.env.WEBHOOK_URL || "https://webhook.my-domain.com";
+
 app.get("/send", async (req, res) => {
   try {
     const fetch = (await import("node-fetch")).default;
@@ -15,14 +16,14 @@ app.get("/send", async (req, res) => {
       return res.status(400).json({ error: "Missing required parameters: name, reason, date, email, priority" });
     }
 
-    const webhookURL = new URL(webhook);
-    webhookURL.searchParams.append("name", name as string);
-    webhookURL.searchParams.append("reason", reason as string);
-    webhookURL.searchParams.append("date", date as string);
-    webhookURL.searchParams.append("email", email as string);
-    webhookURL.searchParams.append("priority", priority as string);
+    const url = new URL(WEBHOOK_URL);
+    url.searchParams.append("name", name as string);
+    url.searchParams.append("reason", reason as string);
+    url.searchParams.append("date", date as string);
+    url.searchParams.append("email", email as string);
+    url.searchParams.append("priority", priority as string);
 
-    const response = await fetch(webhookURL.toString(), {
+    const response = await fetch(url.toString(), {
       method: "GET",
     });
 
@@ -44,5 +45,5 @@ app.use((req, res) => {
 
 app.listen(PORT, () => {
   console.log(`Proxy API running on http://localhost:${PORT}`);
-  console.log(`Send GET requests to http://localhost:${PORT}/send with query parameters: apiUrl, name, reason, date, email, priority`);
+  console.log(`Send GET requests to http://localhost:${PORT}/send with query parameters: name, reason, date, email, priority`);
 });

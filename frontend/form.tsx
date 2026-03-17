@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 
 export const TicketForm: React.FC = () => {
   const [formData, setFormData] = useState({
-    apiUrl: '',
     name: '',
     email: '',
     priority: 'MEDIA',
@@ -33,7 +32,6 @@ export const TicketForm: React.FC = () => {
       if (response.ok) {
         setStatus({ type: 'success', message: 'Ticket enviado correctamente' });
         setFormData({
-          apiUrl: formData.apiUrl, // Keep apiUrl
           name: '',
           email: '',
           priority: 'MEDIA',
@@ -53,19 +51,6 @@ export const TicketForm: React.FC = () => {
   return (
     <div>
       <form onSubmit={handleSubmit}>
-        <div className="form-group">
-          <label htmlFor="apiUrl">URL del Webhook (apiUrl)</label>
-          <input
-            type="url"
-            id="apiUrl"
-            name="apiUrl"
-            value={formData.apiUrl}
-            onChange={handleChange}
-            required
-            placeholder="https://ejemplo.com/webhook"
-          />
-        </div>
-
         <div className="form-group">
           <label htmlFor="name">Nombre</label>
           <input
