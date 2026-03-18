@@ -2,7 +2,8 @@
   "context": "..",
   "remoteUser": "root",
   "forwardPorts": [
-    3000
+    3000,
+    5173
   ],
   "features": {
       "ghcr.io/devcontainers/features/docker-in-docker:2": {
@@ -20,6 +21,7 @@
       }
     }
   },
+  "postStartCommand": "npm run start:frontend",
   "name": "tic-proyecto Dev Container",
   "dockerFile": "Dockerfile"
 }

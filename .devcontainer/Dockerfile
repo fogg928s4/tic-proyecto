@@ -15,4 +15,4 @@ COPY . .
 EXPOSE 5173
 
 # Default command for devcontainer in practice is set by VSCode, but keep fallback
-CMD ["npm", "start:frontend"]
+CMD ["npm", "run", "start:frontend"]
