@@ -1,5 +1,4 @@
-FROM mcr.microsoft.com/devcontainers/typescript-node:24-trixie
-
+FROM mcr.microsoft.com/devcontainers/typescript-node:22-bookworm
 # Set working directory inside the container
 WORKDIR /workspace
 
