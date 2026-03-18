@@ -12,7 +12,7 @@ RUN apt update && apt upgrade -y
 COPY . .
 
 # Expose app port
-EXPOSE 3000
+EXPOSE 5173
 
 # Default command for devcontainer in practice is set by VSCode, but keep fallback
 CMD ["npm", "start:frontend"]
