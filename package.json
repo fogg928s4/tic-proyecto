@@ -17,6 +17,7 @@
   "scripts": {
     "dev": "ts-node-dev --respawn --transpile-only api/index.ts",
     "dev:frontend": "vite",
+    "start:frontend": "vite",
     "start": "ts-node api/index.ts",
     "build": "tsc && vite build"
   },

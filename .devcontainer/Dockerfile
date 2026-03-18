@@ -7,7 +7,6 @@ COPY package.json package-lock.json* ./
 
 # Install project dependencies
 RUN apt update && apt upgrade -y
-RUN apt install lolcow
 RUN nvm install node
 RUN npm i -g npm@latest
 
@@ -18,4 +17,4 @@ COPY . .
 EXPOSE 3000
 
 # Default command for devcontainer in practice is set by VSCode, but keep fallback
-# CMD ["npm", "start"]
+CMD ["npm", "start:frontend"]
