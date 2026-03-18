@@ -1,5 +1,4 @@
 {
-  "postCreateCommand": "npm ci",
   "context": "..",
   "remoteUser": "vscode",
   "forwardPorts": [
@@ -10,7 +9,6 @@
       "version": "latest"
     }
   },
-  "postStartCommand": "npm test",
   "customizations": {
     "vscode": {
       "settings": {
