@@ -7,7 +7,7 @@ WORKDIR /workspace
 COPY package.json package-lock.json* ./
 
 # Install project dependencies
-RUN npm ci
+# RUN npm ci
 
 # Copy the rest of the application code
 COPY . .
@@ -16,4 +16,4 @@ COPY . .
 EXPOSE 3000
 
 # Default command for devcontainer in practice is set by VSCode, but keep fallback
-CMD ["npm", "start"]
+# CMD ["npm", "start"]
