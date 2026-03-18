@@ -7,8 +7,6 @@ COPY package.json package-lock.json* ./
 
 # Install project dependencies
 RUN apt update && apt upgrade -y
-RUN nvm install node
-RUN npm i -g npm@latest
 
 # Copy the rest of the application code
 COPY . .

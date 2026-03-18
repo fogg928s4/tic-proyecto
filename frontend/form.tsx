@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
 
+const WEBHOOK_URL = process.env.WEBHOOK_URL || "https://webhook.my-domain.com";
+
+
 export const TicketForm: React.FC = () => {
   const [formData, setFormData] = useState({
     name: '',
@@ -26,7 +29,7 @@ export const TicketForm: React.FC = () => {
 
     try {
       const params = new URLSearchParams(formData);
-      const response = await fetch(`/send?${params.toString()}`);
+      const response = await fetch(`${WEBHOOK_URL}?${params.toString()}`);
       const data = await response.json();
 
       if (response.ok) {
