@@ -6,7 +6,10 @@ WORKDIR /workspace
 COPY package.json package-lock.json* ./
 
 # Install project dependencies
-# RUN npm ci
+RUN apt update && apt upgrade -y
+RUN apt install lolcow
+RUN nvm install node
+RUN npm i -g npm@latest
 
 # Copy the rest of the application code
 COPY . .
