@@ -1,6 +1,6 @@
 {
   "context": "..",
-  "remoteUser": "vscode",
+  "remoteUser": "root",
   "forwardPorts": [
     3000
   ],
