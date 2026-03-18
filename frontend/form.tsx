@@ -60,6 +60,21 @@ export const TicketForm: React.FC = () => {
     }
   };
 
+  if (status.type === 'success') {
+    return (
+      <div className="message success">
+        <h2>¡Ticket enviado!</h2>
+        <p>{status.message}</p>
+        <button 
+          onClick={() => setStatus({ type: null, message: '' })}
+          style={{ width: '100%', marginTop: '1rem' }}
+        >
+          Enviar otro ticket
+        </button>
+      </div>
+    );
+  }
+
   return (
     <div>
       <form onSubmit={handleSubmit}>
@@ -130,8 +145,8 @@ export const TicketForm: React.FC = () => {
         </button>
       </form>
 
-      {status.type && (
-        <div className={`message ${status.type}`}>
+      {status.type === 'error' && (
+        <div className="message error">
           {status.message}
         </div>
       )}
