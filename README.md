@@ -26,3 +26,22 @@ Este proyecto es una sistema de gestión de tickets de IT. Incluye una **API RES
 - GitHub Copilot
 - Gemini (refactor and frontend)
 - VITE & React (frontend)
+
+## Como usar?
+
+Corre el siguiente comando
+
+```bash
+
+cp .env.example .env
+
+```
+
+Copia tu url del **Webhook** de **[make.com](make.com)** y copialo dentro del archivo `.env`. Posteriormente, ejecuta el siguiente comando abajo
+
+```shell
+
+npm i
+npm run start:frontend
+
+```
