@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
+import { config } from 'dotenv';
 
-const WEBHOOK_URL = process.env.WEBHOOK_URL || "https://webhook.my-domain.com";
+const webhookURL = process.env.WEBHOOK_URL || "https://webhook.my-domain.com";
 
 
 export const TicketForm: React.FC = () => {
@@ -29,7 +30,7 @@ export const TicketForm: React.FC = () => {
 
     try {
       const params = new URLSearchParams(formData);
-      const response = await fetch(`${WEBHOOK_URL}?${params.toString()}`);
+      const response = await fetch(`${webhookURL}?${params.toString()}`);
       const data = await response.json();
 
       if (response.ok) {
