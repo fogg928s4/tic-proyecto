@@ -1,15 +1,7 @@
 {
   "name": "tic-proyecto",
-  "version": "1.0.0",
+  "version": "2.2.7",
   "description": "A nice and beautiful IT ticket manager",
-  "homepage": "https://github.com/fogg928s4/tic-proyecto#readme",
-  "bugs": {
-    "url": "https://github.com/fogg928s4/tic-proyecto/issues"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/fogg928s4/tic-proyecto.git"
-  },
   "license": "MIT",
   "author": "fogg928s4",
   "type": "commonjs",
@@ -18,6 +10,7 @@
     "dev": "ts-node-dev --respawn --transpile-only api/index.ts",
     "dev:frontend": "vite",
     "start:frontend": "vite",
+    "build:frontend": "vite build",
     "start": "ts-node api/index.ts",
     "build": "tsc && vite build"
   },

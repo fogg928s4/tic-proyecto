@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
-import { config } from 'dotenv';
 
 export const TicketForm: React.FC = () => {
-  const webhookURL = process.env['WEBHOOK_URL'] || "https://webhook.my-domain.com";
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -27,10 +25,21 @@ export const TicketForm: React.FC = () => {
     setStatus({ type: null, message: '' });
 
     try {
-      const params = new URLSearchParams(formData);
-      const response = await fetch(`${webhookURL}?${params.toString()}`);
-      const data = await response.json();
+      const webhookUrl = import.meta.env.VITE_WEBHOOK_URL;
+      
+      if (!webhookUrl) {
+        setStatus({ type: 'error', message: 'Webhook URL no configurada' });
+        setLoading(false);
+        return;
+      }
 
+      const params = new URLSearchParams(formData);
+      const response = await fetch(`${webhookUrl}?${params.toString()}`, {
+        method: "GET",
+        mode: "cors"
+      });
+
+      // Handle the response if possible, noting that webhooks might not return JSON or might have CORS restrictions
       if (response.ok) {
         setStatus({ type: 'success', message: 'Ticket enviado correctamente' });
         setFormData({
@@ -41,10 +50,11 @@ export const TicketForm: React.FC = () => {
           reason: ''
         });
       } else {
-        setStatus({ type: 'error', message: data.error || 'Error al enviar el ticket' });
+        setStatus({ type: 'error', message: 'Error al enviar el ticket' });
       }
     } catch (error) {
-      setStatus({ type: 'error', message: 'Error de conexión con el servidor' });
+      console.error("Fetch error:", error);
+      setStatus({ type: 'error', message: 'Error de conexión con el webhook' });
     } finally {
       setLoading(false);
     }
