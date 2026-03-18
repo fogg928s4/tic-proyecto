@@ -1,10 +1,8 @@
 import React, { useState } from 'react';
 import { config } from 'dotenv';
 
-const webhookURL = process.env.WEBHOOK_URL || "https://webhook.my-domain.com";
-
-
 export const TicketForm: React.FC = () => {
+  const webhookURL = process.env['WEBHOOK_URL'] || "https://webhook.my-domain.com";
   const [formData, setFormData] = useState({
     name: '',
     email: '',
